@@ -7,12 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "./ui/button";
 import { SITE_CONFIG } from "@/lib/site-config";
-
-interface TypewriterProps {
-  text: string;
-  speed?: number;
-  className?: string;
-}
+import { TypewriterProps } from "@/lib/types";
 
 function Typewriter({ text, speed = 40, className }: TypewriterProps) {
   const [displayed, setDisplayed] = useState("");

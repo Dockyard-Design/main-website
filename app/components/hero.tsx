@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Button from "./ui/button";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { ServicesCard } from "./ui/services-card";
 
 export default function Hero() {
-  const { hero, media } = SITE_CONFIG;
+  const { hero, media, services } = SITE_CONFIG;
 
   return (
     <div className="relative min-h-screen grid">
@@ -21,9 +22,9 @@ export default function Hero() {
       <div className="col-start-1 row-start-1 flex items-start justify-start text-center px-4 z-10 pt-[30vh] pl-60">
         <div className="max-w-7xl w-full flex flex-col items-center justify-center gap-6">
           <h1 className="text-[88px] font-bold leading-tight text-glow">
-            {hero.title.text.split(' ').map((word, i) => {
-              const highlight = hero.title.highlighted.find(h =>
-                h.text.toUpperCase().split(' ').includes(word.toUpperCase())
+            {hero.title.text.split(" ").map((word, i) => {
+              const highlight = hero.title.highlighted.find((h) =>
+                h.text.toUpperCase().split(" ").includes(word.toUpperCase()),
               );
               return (
                 <span key={i} className={highlight?.color || ""}>
@@ -48,6 +49,34 @@ export default function Hero() {
             <Button variant="link" size="sm" className="text-md">
               {hero.cta.secondary.text}
             </Button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="flex flex-col items-center justify-center py-16 px-4 gap-10 max-w-350 mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center text-gradient-hero">
+            Additional Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <ServicesCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                cardClassName={`bg-services-gradient-card w-full sm:basis-1/2 h-24 sm:h-auto`}
+                cardStyle={{
+                  border: `1px solid ${service.cardColor}`,
+                  boxShadow: `14px 14px 18px 1px #000, 0px 0px 18px 1px ${service.cardColor}`,
+                }}
+                iconClassName={`w-24 sm:w-30 h-full sm:h-auto flex-shrink-0`}
+                iconWrapperStyle={{
+                  background: `linear-gradient(to top, ${service.iconGradientStart}, ${service.iconGradientEnd})`,
+                  boxShadow: `0px 0px 12px ${service.cardColor}`,
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>

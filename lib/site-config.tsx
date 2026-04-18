@@ -1,3 +1,10 @@
+import {
+  Search,
+  LineSquiggle,
+  ChartNoAxesColumn,
+  Smartphone,
+} from "lucide-react";
+
 export const SITE_CONFIG = {
   general: {
     name: "Dockyard Design",
@@ -30,7 +37,8 @@ export const SITE_CONFIG = {
         { text: "YOUR BUSINESS", color: "text-pink" },
       ],
     },
-    subtitle: "We create custom web solutions and bespoke digital products for forward-thinking businesses.",
+    subtitle:
+      "We create custom web solutions and bespoke digital products for forward-thinking businesses.",
     cta: {
       primary: {
         text: "GET IN TOUCH",
@@ -71,6 +79,44 @@ export const SITE_CONFIG = {
       buttonLink: "/contact",
     },
   },
+  services: [
+    {
+      title: "Search Engine Optimization (SEO)",
+      description:
+        "Improve your website's visibility and ranking on search engines to attract more organic traffic. Basic SEO Setup provided with every project.",
+      cardColor: "#FF312E",
+      iconGradientStart: "#FF1616",
+      iconGradientEnd: "#FF5656",
+      icon: <Search size={64} />,
+    },
+    {
+      title: "Branding & Logo Design",
+      description:
+        "Creating unique brand identities and memorable logos that represent your business. We work closely with you to understand your vision and craft a visual identity that resonates with your target audience.",
+      cardColor: "#88FF00",
+      iconGradientStart: "#509600",
+      iconGradientEnd: "#7DBF30",
+      icon: <LineSquiggle size={64} />,
+    },
+    {
+      title: "Google Analytics Setup",
+      description:
+        "Set up Google Analytics to track your website's performance and gain insights into user behavior. Basic Analytics Setup provided with every project.",
+      cardColor: "#EA00FF",
+      iconGradientStart: "#DE23EE",
+      iconGradientEnd: "#E765F3",
+      icon: <ChartNoAxesColumn size={64} />,
+    },
+    {
+      title: "Mobile App Development",
+      description:
+        "Creating user-friendly mobile applications for iOS and Android platforms. We build responsive and intuitive apps that provide a seamless user experience across all devices.",
+      cardColor: "#00CFFF",
+      iconGradientStart: "#0099CC",
+      iconGradientEnd: "#00BFFF",
+      icon: <Smartphone size={64} />,
+    },
+  ],
   footer: {
     socialLinks: {
       facebook: "#",

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Project {
   id: string;
   title: string;
@@ -17,4 +19,21 @@ export interface Project {
 
 export interface ApiResponse {
   data: Project[];
+}
+
+export interface TypewriterProps {
+  text: string;
+  speed?: number;
+  className?: string;
+}
+
+export interface ServicesCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  cardClassName?: string;
+  iconClassName?: string;
+  iconWrapperStyle?: React.CSSProperties;
+  cardStyle?: React.CSSProperties;
+  children?: ReactNode;
 }

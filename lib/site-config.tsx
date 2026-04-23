@@ -1,3 +1,4 @@
+import { desc } from "framer-motion/client";
 import {
   Search,
   LineSquiggle,
@@ -8,6 +9,7 @@ import {
 export const SITE_CONFIG = {
   general: {
     name: "Dockyard Design",
+    description: "Unique web products for your business",
     email: "hello@dockyard.design",
     logoUrl: "/logo.svg",
   },
@@ -19,9 +21,9 @@ export const SITE_CONFIG = {
       { label: "Projects", url: "/projects" },
     ],
     other: [
-      { label: "Legal", url: "#" },
-      { label: "Policies", url: "#" },
-      { label: "Contact us", url: "#" },
+      { label: "Terms & Conditions", url: "/terms" },
+      { label: "Privacy Policy", url: "/privacy" },
+      { label: "Contact us", url: "/contact" },
     ],
   },
   media: {
@@ -81,6 +83,15 @@ export const SITE_CONFIG = {
   },
   services: [
     {
+      title: "Mobile App Development",
+      description:
+        "Creating user-friendly mobile applications for iOS and Android platforms. We build responsive and intuitive apps that provide a seamless user experience across all devices.",
+      cardColor: "#00CFFF",
+      iconGradientStart: "#0099CC",
+      iconGradientEnd: "#00BFFF",
+      icon: <Smartphone size={64} />,
+    },
+    {
       title: "Search Engine Optimization (SEO)",
       description:
         "Improve your website's visibility and ranking on search engines to attract more organic traffic. Basic SEO Setup provided with every project.",
@@ -106,15 +117,6 @@ export const SITE_CONFIG = {
       iconGradientStart: "#DE23EE",
       iconGradientEnd: "#E765F3",
       icon: <ChartNoAxesColumn size={64} />,
-    },
-    {
-      title: "Mobile App Development",
-      description:
-        "Creating user-friendly mobile applications for iOS and Android platforms. We build responsive and intuitive apps that provide a seamless user experience across all devices.",
-      cardColor: "#00CFFF",
-      iconGradientStart: "#0099CC",
-      iconGradientEnd: "#00BFFF",
-      icon: <Smartphone size={64} />,
     },
   ],
   footer: {

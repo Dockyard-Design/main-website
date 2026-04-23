@@ -12,14 +12,37 @@ class ApiError extends Error {
   }
 }
 
-export async function getProjects(): Promise<Project[]> {
-  const res = await fetch(API_URL, {
+function createApiUrl(params?: Record<string, string | number | boolean>) {
+  const url = new URL(API_URL);
+  url.pathname = url.pathname.replace(/\/$/, "");
+
+  if (params) {
+    for (const [key, value] of Object.entries(params)) {
+      url.searchParams.set(key, String(value));
+    }
+  }
+
+  return url;
+}
+
+function createProjectsApiUrl(params?: Record<string, string | number | boolean>) {
+  const url = createApiUrl(params);
+  url.pathname = url.pathname.replace(/\/posts\/?$/, "/projects");
+
+  return url;
+}
+
+async function fetchProjects(
+  url: URL,
+  tags: string[] = ["projects"]
+): Promise<Project[]> {
+  const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${API_KEY}`,
     },
     next: {
       revalidate: 60,
-      tags: ["projects"],
+      tags,
     },
   });
 
@@ -45,4 +68,20 @@ export async function getProjects(): Promise<Project[]> {
   }
 
   return response.data;
+}
+
+export async function getProjects(): Promise<Project[]> {
+  return fetchProjects(createApiUrl());
+}
+
+export async function getFeaturedProject(): Promise<Project | null> {
+  const projects = await fetchProjects(
+    createProjectsApiUrl({
+      is_featured: true,
+      limit: 1,
+    }),
+    ["projects", "featured-project"]
+  );
+
+  return projects.find((project) => project.is_featured) ?? null;
 }

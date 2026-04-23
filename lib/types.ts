@@ -4,15 +4,18 @@ export interface Project {
   id: string;
   title: string;
   slug: string;
-  content: string;
+  content?: string;
   excerpt: string;
   status: string;
   is_public: boolean;
-  is_indexable: boolean;
+  is_featured?: boolean;
+  is_indexable?: boolean;
   seo_title: string;
   seo_description: string;
   seo_keywords: string;
-  featured_image_url: string;
+  featured_image_url?: string | null;
+  featured_desktop_image_url?: string | null;
+  featured_phone_image_url?: string | null;
   created_at: string;
   updated_at: string;
 }

@@ -359,4 +359,379 @@ body {
   .custom-modal-background-dimmed {
     background: var(--modal-background-dimmed);
   }
+
+  .nf-page {
+    --nf-background: oklch(0.18 0.03 250);
+    --nf-foreground: oklch(0.97 0.01 260);
+    --nf-card: oklch(0.22 0.035 250);
+    --nf-primary: oklch(0.7 0.15 220);
+    --nf-primary-foreground: oklch(0.12 0.02 250);
+    --nf-secondary: oklch(0.28 0.04 250);
+    --nf-muted-foreground: oklch(0.7 0.03 250);
+    --nf-accent: oklch(0.35 0.06 220);
+    --nf-accent-foreground: oklch(0.98 0.01 260);
+    --nf-destructive: oklch(0.55 0.2 25);
+    --nf-border: oklch(0.3 0.04 250 / 50%);
+    --nf-input: oklch(0.3 0.04 250 / 30%);
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--nf-background);
+    color: var(--nf-foreground);
+    padding: 2rem 1.5rem;
+  }
+
+  .nf-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    background:
+      radial-gradient(
+        circle at 18% 18%,
+        color-mix(in oklch, var(--nf-primary) 20%, transparent),
+        transparent 30%
+      ),
+      linear-gradient(
+        135deg,
+        color-mix(in oklch, var(--nf-secondary) 70%, transparent),
+        transparent 45%
+      );
+  }
+
+  .nf-left-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    width: 1px;
+    height: 100%;
+    transform: translateX(2rem);
+    background: color-mix(in oklch, var(--nf-primary) 30%, transparent);
+  }
+
+  .nf-bottom-line {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: -10;
+    height: 1px;
+    background: var(--nf-border);
+  }
+
+  .nf-shell {
+    display: grid;
+    width: 100%;
+    max-width: 72rem;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 0 auto;
+  }
+
+  .nf-copy {
+    max-width: 42rem;
+  }
+
+  .nf-logo {
+    width: 10rem;
+    height: auto;
+    margin-bottom: 3rem;
+  }
+
+  .nf-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid color-mix(in oklch, var(--nf-primary) 25%, transparent);
+    border-radius: 0.375rem;
+    background: color-mix(in oklch, var(--nf-primary) 10%, transparent);
+    color: var(--nf-primary);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .nf-icon-kicker {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .nf-icon-button {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+  }
+
+  .nf-title {
+    max-width: 48rem;
+    color: var(--nf-foreground);
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .nf-description {
+    max-width: 36rem;
+    margin-top: 1.5rem;
+    color: var(--nf-muted-foreground);
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  .nf-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .nf-button {
+    display: inline-flex;
+    height: 2.75rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    background: var(--nf-primary);
+    color: var(--nf-primary-foreground);
+    padding: 0 2rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    transition-property: color, background-color, border-color;
+    transition-duration: 150ms;
+  }
+
+  .nf-button:hover {
+    background: color-mix(in oklch, var(--nf-primary) 90%, transparent);
+  }
+
+  .nf-button:focus-visible {
+    outline: 2px solid var(--nf-primary);
+    outline-offset: 2px;
+  }
+
+  .nf-button-outline {
+    border: 1px solid var(--nf-input);
+    background: color-mix(in oklch, var(--nf-background) 55%, transparent);
+    color: var(--nf-foreground);
+  }
+
+  .nf-button-outline:hover {
+    background: var(--nf-accent);
+    color: var(--nf-accent-foreground);
+  }
+
+  .nf-return {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    color: var(--nf-muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 150ms;
+  }
+
+  .nf-return:hover {
+    color: var(--nf-foreground);
+  }
+
+  .nf-card {
+    position: relative;
+    min-height: 20rem;
+    overflow: hidden;
+    border: 1px solid color-mix(in oklch, var(--nf-border) 70%, transparent);
+    border-radius: 0.5rem;
+    background: color-mix(in oklch, var(--nf-card) 80%, transparent);
+    padding: 1.25rem;
+    box-shadow: 0 25px 50px -12px
+      color-mix(in oklch, var(--nf-background) 50%, transparent);
+  }
+
+  .nf-card-accent {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.25rem;
+    background: var(--nf-primary);
+  }
+
+  .nf-panel {
+    display: grid;
+    min-height: 18rem;
+    height: 100%;
+    grid-template-rows: auto 1fr auto;
+    border: 1px solid color-mix(in oklch, var(--nf-border) 60%, transparent);
+    border-radius: 0.375rem;
+    background: color-mix(in oklch, var(--nf-background) 60%, transparent);
+    padding: 1.25rem;
+  }
+
+  .nf-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid
+      color-mix(in oklch, var(--nf-border) 70%, transparent);
+    padding-bottom: 1rem;
+  }
+
+  .nf-panel-label {
+    color: var(--nf-muted-foreground);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .nf-status {
+    border: 1px solid
+      color-mix(in oklch, var(--nf-destructive) 35%, transparent);
+    border-radius: 0.375rem;
+    background: color-mix(in oklch, var(--nf-destructive) 10%, transparent);
+    color: var(--nf-destructive);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+  }
+
+  .nf-radar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nf-orbit,
+  .nf-ray {
+    position: absolute;
+  }
+
+  .nf-orbit-lg {
+    width: 11rem;
+    height: 11rem;
+    border: 1px solid color-mix(in oklch, var(--nf-primary) 25%, transparent);
+    border-radius: 9999px;
+  }
+
+  .nf-orbit-sm {
+    width: 7rem;
+    height: 7rem;
+    border: 1px dashed
+      color-mix(in oklch, var(--nf-muted-foreground) 35%, transparent);
+    border-radius: 9999px;
+  }
+
+  .nf-ray {
+    height: 1px;
+  }
+
+  .nf-ray-primary {
+    width: 16rem;
+    transform: rotate(-18deg);
+    background: color-mix(in oklch, var(--nf-primary) 35%, transparent);
+  }
+
+  .nf-ray-border {
+    width: 14rem;
+    transform: rotate(24deg);
+    background: var(--nf-border);
+  }
+
+  .nf-code {
+    position: relative;
+    display: flex;
+    width: 6rem;
+    height: 6rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in oklch, var(--nf-primary) 35%, transparent);
+    border-radius: 0.375rem;
+    background: color-mix(in oklch, var(--nf-primary) 10%, transparent);
+    color: var(--nf-primary);
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    box-shadow: 0 0 48px -18px var(--nf-primary);
+  }
+
+  .nf-panel-footer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    border-top: 1px solid color-mix(in oklch, var(--nf-border) 70%, transparent);
+    color: var(--nf-muted-foreground);
+    padding-top: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .nf-panel-footer span:nth-child(2) {
+    text-align: center;
+  }
+
+  .nf-panel-footer span:nth-child(3) {
+    text-align: right;
+  }
+
+  @media (min-width: 40rem) {
+    .nf-page {
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    .nf-left-line {
+      transform: translateX(3.5rem);
+    }
+
+    .nf-bottom-line {
+      right: 3.5rem;
+      left: 3.5rem;
+    }
+
+    .nf-logo {
+      width: 11.5rem;
+    }
+
+    .nf-title {
+      font-size: 4.5rem;
+    }
+
+    .nf-description {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+
+    .nf-actions {
+      flex-direction: row;
+    }
+
+    .nf-button {
+      width: auto;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .nf-shell {
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+    }
+
+    .nf-title {
+      font-size: 6rem;
+    }
+  }
 }

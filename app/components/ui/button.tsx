@@ -35,7 +35,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-full font-medium transition-colors duration-200 active:scale-95",
+        "inline-flex items-center justify-center rounded-full font-medium transition-colors duration-200 active:scale-95 cursor-pointer",
         variants[variant],
         sizes[size],
         className,

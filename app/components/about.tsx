@@ -293,32 +293,19 @@ export default function About() {
         </div>
 
         {CTA_SECTION && (
-          <div className="relative flex flex-col items-center mt-8 md:mt-16 lg:mt-60 z-50">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 off-white-text-shadow-hero max-w-90">
+          <div className="relative flex flex-col items-center mt-10 md:mt-16 lg:mt-30 z-50">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 off-white-text-shadow-hero max-w-90 mt-60 ">
               {CTA_SECTION.headline}
             </h2>
-            <Button variant="primary" size="xxl" className=" mb-6 mt-20">
-              <Link href={CTA_SECTION.buttonLink}>
+            <Link href={CTA_SECTION.buttonLink}>
+              <Button variant="primary" size="xxl" className=" mb-6 mt-30">
                 {CTA_SECTION.buttonText}
-              </Link>
-            </Button>
+              </Button>
+            </Link>
             <Link
               href={`mailto:${CTA_SECTION.email}`}
               className="text-white text-xl group inline-flex hover:text-[#00CDF4] transition-colors duration-300 mt-5"
-            >
-              {CTA_SECTION.email.split("").map((char, index) => (
-                <span
-                  key={index}
-                  className="inline-block transition-transform duration-300 ease-in-out group-hover:animate-wave"
-                  style={{
-                    animationDelay: `${index * 50}ms`,
-                    display: "inline-block",
-                  }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))}
-            </Link>
+            ></Link>
           </div>
         )}
       </div>
